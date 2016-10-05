@@ -23,9 +23,12 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["content_scripts/main.js"]
+      "js": ["src/inject/inject.js"]
     }
   ],
   "permissions": [
+  ],
+  "web_accessible_resources": [
+    "src/inject/inject.html"
   ]
 }
