@@ -49,20 +49,6 @@ function savePageData() {
 
 console.log("Hello. This message was sent from src/inject/inject.js");
 
-var xmlHttp = null;
-
-xmlHttp = new XMLHttpRequest();
-xmlHttp.open( "GET", chrome.extension.getURL ("src/inject/inject.html"), false );
-xmlHttp.send( null );
-
-var inject  = document.createElement("div");
-inject.innerHTML = xmlHttp.responseText;
-document.body.insertBefore (inject, document.body.firstChild);
-
-// Inject Ad
-var imgURL = chrome.extension.getURL("src/images/ad.png");
-console.log(imgURL)
-document.getElementById("kbb-ext-ad").src = imgURL;
 
 setTimeout(function() {
 	var metakeywords = getMetaKeywords();
@@ -75,6 +61,20 @@ setTimeout(function() {
 	}
 	
 	if(year > 1900 && year < 3000) {
+        // inject ad
+        var xmlHttp = null;
+
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", chrome.extension.getURL ("src/inject/inject.html"), false );
+        xmlHttp.send( null );
+
+        var inject  = document.createElement("div");
+        inject.innerHTML = xmlHttp.responseText;
+        document.body.insertBefore (inject, document.body.firstChild);
+        var imgURL = chrome.extension.getURL("src/images/ad.png");
+        document.getElementById("kbb-ext-ad").src = imgURL;
+        console.log(imgURL)
+
 		console.log(year+ " " + make+ " " + model);
 		document.getElementById("year").value = year;
 		document.getElementById("make").value = make;
