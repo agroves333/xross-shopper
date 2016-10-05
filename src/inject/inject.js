@@ -22,9 +22,13 @@ function getMetaKeywords() {
 function checkForKeywords(data) {
    data = data.toLowerCase().split(" ");
    
+   if(data.length < 0 || !Number.isInteger(parseInt(data[0]))){
+	   return;
+   }
+   
    console.log(JSON.stringify(data));
    if(data.length > 0){
-	   year = data[0];
+	   year = parseInt(data[0]);
    }
    if(data.length > 1){
 	   make = data[1];
@@ -61,8 +65,10 @@ setTimeout(function() {
 		checkForKeywords(document.title);
 	}
 	
-	console.log(year+ " " + make+ " " + model);
-	document.getElementById("year").value = year;
-	document.getElementById("make").value = make;
-	document.getElementById("model").value = model;
+	if(year > 1900 && year < 3000) {
+		console.log(year+ " " + make+ " " + model);
+		document.getElementById("year").value = year;
+		document.getElementById("make").value = make;
+		document.getElementById("model").value = model;
+	}
 }, 3000);
