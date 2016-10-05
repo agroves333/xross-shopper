@@ -8,16 +8,18 @@ var make = "";
 var model = "";
 
 function getMetaKeywords() { 
-   var metas = document.getElementsByTagName('meta'); 
+	console.log("here in meta");
+	var metas = document.getElementsByTagName('meta'); 
   
-   for (var i=0; i<metas.length; i++) { 
-      if (metas[i].getAttribute("keywords")) { 
-         return metas[i].getAttribute("keywords"); 
+   for (var i=0; i<metas.length; i++) {
+      if (metas[i].getAttribute("name") === "keywords") { 
+		 console.log("here in keywords");
+         return metas[i].getAttribute("content"); 
       } 
    } 
 
     return "";
-} 
+}  
 
 function checkForKeywords(data) {
    data = data.toLowerCase().split(" ");
