@@ -38,6 +38,15 @@ function checkForKeywords(data) {
    }
 }
 
+function savePageData() {
+    var visited = window.location.href;
+    var time = +new Date();
+    chrome.storage.sync.set({'visitedPages':{pageUrl:visited,time:time}}, function () {
+        console.log("Just visited",visited)
+    });
+}
+
+
 console.log("Hello. This message was sent from src/inject/inject.js");
 
 var xmlHttp = null;
@@ -70,5 +79,6 @@ setTimeout(function() {
 		document.getElementById("year").value = year;
 		document.getElementById("make").value = make;
 		document.getElementById("model").value = model;
+        savePageData();
 	}
 }, 2000);
