@@ -19,6 +19,13 @@
     "default_title": "browser action demo",
     "default_popup": "src/browser_action/browser_action.html"
   },
+
+  "content_scripts": [
+    {
+      "matches": ["*"],
+      "js": ["ccontent_scripts/main.js"]
+    }
+  ],
   "permissions": [
   ]
 }
