@@ -23,7 +23,7 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["ccontent_scripts/main.js"]
+      "js": ["content_scripts/main.js"]
     }
   ],
   "permissions": [
