@@ -2,7 +2,7 @@
   "name": "CAMG XrossShopper",
   "short_name": "CAMG XrossShopper",
   "version": "0.0.2",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "description": "Team Syntax{ - 2016 Hackathon CAMG XrossShopper",
   "homepage_url": "http://www.kbb.com",
   "icons": {
