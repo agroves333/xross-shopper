@@ -1,0 +1,27 @@
+#kbb-ext-wrapper {
+    padding: 15px;
+}
+
+#kbb-ext-form{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#kbb-ext-form .kbb-mmy-input-group {
+    margin-right: 15px;
+}
+
+#kbb-ext-form .kbb-mmy-input-group input {
+    width: 100px;
+    display: inline-block;
+    border-width: 1px;
+    padding: 5px;
+}
+
+#kbb-ext-form .kbb-mmy-input-group label {
+    display: inline-block;
+}
+
+#kbb-ext-ad {
+    width: 400px;
+}
