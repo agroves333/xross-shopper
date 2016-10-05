@@ -1,8 +1,8 @@
 {
-  "name": "KBB",
+  "name": "CAMG",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Kelly Blue Book's Chrome Extension",
+  "description": "Cox Auto Media Group XrossShopper",
   "homepage_url": "http://www.kbb.com",
   "icons": {
     "16": "icons/icon.gif",
