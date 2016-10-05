@@ -71,4 +71,4 @@ setTimeout(function() {
 		document.getElementById("make").value = make;
 		document.getElementById("model").value = model;
 	}
-}, 3000);
+}, 2000);
