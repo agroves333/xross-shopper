@@ -16,6 +16,13 @@ chrome.extension.sendMessage({}, function(response) {
 			var inject  = document.createElement("div");
 			inject.innerHTML = xmlHttp.responseText;
 			document.body.insertBefore (inject, document.body.firstChild);
+			
+			// Inject Ad
+			var imgURL = chrome.extension.getURL("src/images/ad.png");
+			console.log(imgURL)
+			document.getElementById("kbb-ext-ad").src = imgURL;
+			
+			
 			// ----------------------------------------------------------
 
 		}

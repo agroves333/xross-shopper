@@ -23,12 +23,14 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["src/inject/inject.js"]
+      "js": ["src/inject/inject.js"],
+      "css": ["src/css/main.css"]
     }
   ],
   "permissions": [
   ],
   "web_accessible_resources": [
-    "src/inject/inject.html"
+    "src/inject/inject.html",
+    "src/images/ad.png"
   ]
 }
