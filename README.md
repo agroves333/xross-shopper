@@ -1,2 +1,13 @@
 # kbb-chrome
-Kelly Blue Book's Chrome Extension
+XrossShopper
+
+Syntax{ - 2016 Hackathon Team 
+
+Kellen Razzano
+Ed Sweetman
+Travis Johnson
+Adam Groves
+Val Anthony Alvero
+Joshua Nelson
+
+##
