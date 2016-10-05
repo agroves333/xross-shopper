@@ -10,7 +10,7 @@ chrome.extension.sendMessage({}, function(response) {
 			var xmlHttp = null;
 
 			xmlHttp = new XMLHttpRequest();
-			xmlHttp.open( "GET", chrome.extension.getURL ("src/inject/inject.html"), true );
+			xmlHttp.open( "GET", chrome.extension.getURL ("src/inject/inject.html"), false );
 			xmlHttp.send( null );
 
 			var inject  = document.createElement("div");
