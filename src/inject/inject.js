@@ -161,6 +161,8 @@ var CAMG_XSHOPPER = (function(){
 				document.getElementById("kbb-ext-price-advisor").src = imgURL;
 
 				console.log(year+ " " + make+ " " + model);
+                make = make.replace(/,/g, '');
+                model = model.replace(/,/g, '');
 				document.getElementById("year").value = year;
 				document.getElementById("make").value = make;
 				document.getElementById("model").value = model;
