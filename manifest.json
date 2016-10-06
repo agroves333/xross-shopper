@@ -30,7 +30,8 @@
   ],
   "permissions": [
     "storage",
-    "http://pauc.syndication.kbb.com/"
+    "http://pauc.syndication.kbb.com/",
+    "https://ajax.googleapis.com/"
   ],
   "web_accessible_resources": [
     "src/inject/inject.html",
