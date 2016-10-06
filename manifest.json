@@ -24,7 +24,7 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["src/inject/carousel/jquery-1.11.0.min.js", "src/inject/carousel/jquery-migrate-1.2.1.min.js", "src/inject/carousel/slick/slick.min.js","src/inject/inject.js"],
+      "js": ["src/inject/inject.js"],
       "css": ["src/inject/carousel/slick/slick.css", "src/inject/carousel/slick/slick-theme.css", "src/css/main.css"]
     }
   ],
@@ -36,6 +36,7 @@
   "web_accessible_resources": [
     "src/inject/inject.html",
     "src/images/ad.png",
-    "src/images/priceAdvisor.png"
+    "src/images/priceAdvisor.png",
+    "src/inject/carousel/*"
   ]
 }

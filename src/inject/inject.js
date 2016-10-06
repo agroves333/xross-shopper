@@ -61,21 +61,18 @@ var CAMG_XSHOPPER = (function(){
 		gearBoxRequest.setRequestHeader("Authorization", "Basic " + btoa('kbbwebqa:3VHcgYbH'));  
 		gearBoxRequest.setRequestHeader('Accept', 'application/json');
 		gearBoxRequest.send( '?makeCode=ACURA&modelCode=ILX&year=2015' );		//TODO use values and confirm syntax, etc
-        // Price Advisor JS
-        /*
+        // Price Advisor JS        
+        // chrome-extension://__MSG_@@jnimfljjdnbkcnciojikcehejobpjhfi__/
+	}
                 var script = document.createElement('script');
                 script.type = 'text/javascript';
                 script.src = chrome.extension.getURL("src/inject/carousel/jquery-1.11.0.min.js");
-                document.getElementsByTagName('head')[0].appendChild(script);
-                
+                document.getElementsByTagName('body')[0].appendChild(script);
+
+		setTimeout(function() {                
                 var script = document.createElement('script');
                 script.type = 'text/javascript';
                 script.src = chrome.extension.getURL("src/inject/carousel/jquery-migrate-1.2.1.min.js");
-                document.getElementsByTagName('head')[0].appendChild(script);
-
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = chrome.extension.getURL("src/inject/carousel/slick/slick.min.js");
                 document.getElementsByTagName('body')[0].appendChild(script);
 
                 var script = document.createElement('style');
@@ -87,20 +84,12 @@ var CAMG_XSHOPPER = (function(){
                 script.type = 'text/css';
                 script.src = chrome.extension.getURL("src/inject/carousel/slick/slick-theme.css");
                 document.getElementsByTagName('head')[0].appendChild(script);
-         */       
-                
-        $(document).ready(function() {
-        
-        $('.multiples-items').slick({
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
-
-        });
-        });
-        // chrome-extension://__MSG_@@jnimfljjdnbkcnciojikcehejobpjhfi__/
-	}
-	
+                            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = chrome.extension.getURL("src/inject/carousel/slick/slick.min.js");
+            document.getElementsByTagName('body')[0].appendChild(script);
+    
+    },100);
 	setTimeout(function() {
 		var metakeywords = getMetaKeywords();
 
@@ -137,6 +126,11 @@ var CAMG_XSHOPPER = (function(){
 				document.getElementById("make").value = make;
 				document.getElementById("model").value = model;
 				savePageData();
+
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.innerHTML= "$('.multiple-items').slick({infinite: true,slidesToShow: 3,slidesToScroll: 3});"
+            document.getElementsByTagName('body')[0].appendChild(script);
 			});
 			
 			renderGearBoxModule();
