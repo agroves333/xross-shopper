@@ -44,7 +44,26 @@ var CAMG_XSHOPPER = (function(){
 			console.log("Just visited",visited)
 		});
 	}
-
+	
+	function renderGearBoxModule () {
+		var gearBoxRequest = null;
+		function reqListener () {
+			debugger;
+			var allGearBoxData = JSON.parse(this.responseText);
+			//var carouselGearBoxData = {stuff:allGearBoxData.stuff};
+			console.log(this.responseText);
+			
+			//load data into ids
+		}
+		gearBoxRequest = new XMLHttpRequest();
+		gearBoxRequest.addEventListener("load", reqListener);
+		gearBoxRequest.open( "GET", 'https://api-qa-origin.autotrader.com/rest/v0/listings', true);
+		gearBoxRequest.withCredentials = true;
+		gearBoxRequest.setRequestHeader("Authorization", "Basic " + btoa('kbbwebqa:3VHcgYbH'));  
+		gearBoxRequest.setRequestHeader('Accept', 'application/json');
+		gearBoxRequest.send( '?makeCode=ACURA&modelCode=ILX&year=2015' );		//TODO use values and confirm syntax, etc
+	}
+	
 	setTimeout(function() {
 		var metakeywords = getMetaKeywords();
 
@@ -82,6 +101,8 @@ var CAMG_XSHOPPER = (function(){
 				document.getElementById("model").value = model;
 				savePageData();
 			});
+			
+			renderGearBoxModule();
 		}
 	}, 5000);
 
