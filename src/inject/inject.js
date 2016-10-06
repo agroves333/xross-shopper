@@ -70,7 +70,11 @@ var CAMG_XSHOPPER = (function(){
                 var price = allGearBoxData.results[i].primaryPrice;
                 //var imgURL = allGearBoxData.results[i].imagesWithSize[0].imageUrl;
                 var imgURL = allGearBoxData.results[i].images[0];
-                var dealerUrl = "http://www.autotrader.com";
+                var dealerUrl;
+                var testDurl = allGearBoxData.results[i].ownerSiteLink;
+                // Because not all dealers in gearbox data have website URL's set.  Yay. 
+                if(!testDurl) dealerUrl = "http://www.autotrader.com";
+                else dealerUrl = testDurl.link;
                 var rotYear = allGearBoxData.results[i].year;
                 var imgURLFixed = imgURL.replace("http","https");
                 acImgRequest = new XMLHttpRequest();
