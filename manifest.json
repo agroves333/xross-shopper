@@ -29,10 +29,12 @@
     }
   ],
   "permissions": [
-    "storage"
+    "storage",
+    "http://pauc.syndication.kbb.com/"
   ],
   "web_accessible_resources": [
     "src/inject/inject.html",
-    "src/images/ad.png"
+    "src/images/ad.png",
+    "src/images/priceAdvisor.png"
   ]
 }
