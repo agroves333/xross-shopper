@@ -105,7 +105,8 @@ var CAMG_XSHOPPER = (function(){
 		gearBoxRequest.withCredentials = true;
 		gearBoxRequest.setRequestHeader("Authorization", "Basic " + btoa('kbbwebqa:3VHcgYbH'));  
 		gearBoxRequest.setRequestHeader('Accept', 'application/json');
-		gearBoxRequest.send( '?makeCode=ACURA&modelCode=ILX&year=2015' );		//TODO use values and confirm syntax, etc
+		
+		gearBoxRequest.send( '?makeCode=' +make.toUpperCase() +'&modelCode='+ model.toUpperCase()+'&year=' + year );		
         // Price Advisor JS        
         // chrome-extension://__MSG_@@jnimfljjdnbkcnciojikcehejobpjhfi__/
 	}
