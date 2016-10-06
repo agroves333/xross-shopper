@@ -1,10 +1,10 @@
 {
   "name": "CAMG XrossShopper",
-  "short_name": "CAMG XrossShopper",
-  "version": "0.0.3",
+  "short_name": "XrossShopper",
+  "version": "0.0.4",
   "manifest_version": 2,
-  "description": "Team Syntax{ - 2016 Hackathon CAMG XrossShopper",
-  "homepage_url": "http://www.kbb.com",
+  "description": "Team Syntax{ 2016 Hackathon CAMG XrossShopper",
+  "homepage_url": "http://www.coxautoinc.com",
   "icons": {
     "16": "icons/icon.gif",
     "48": "icons/icon.gif",
@@ -17,7 +17,7 @@
   },
   "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "browser action demo",
+    "default_title": "CAMG XrossShopper",
     "default_popup": "src/browser_action/browser_action.html"
   },
 
