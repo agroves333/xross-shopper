@@ -51,7 +51,7 @@ var CAMG_XSHOPPER = (function(){
 		function reqListener () {			
 			var allGearBoxData = JSON.parse(this.responseText);
 			//var carouselGearBoxData = {stuff:allGearBoxData.stuff};
-			console.log(this.responseText);
+			//console.log(this.responseText);
 			//debugger
             document.getElementById("kbb_rotate").innerHTML = "";
             var i;
@@ -71,6 +71,7 @@ var CAMG_XSHOPPER = (function(){
                 //var imgURL = allGearBoxData.results[i].imagesWithSize[0].imageUrl;
                 var imgURL = allGearBoxData.results[i].images[0];
                 var dealerUrl = "http://www.autotrader.com";
+                var rotYear = allGearBoxData.results[i].year;
                 var imgURLFixed = imgURL.replace("http","https");
                 acImgRequest = new XMLHttpRequest();
                 acImgRequest.onload = imageDownload(e);
@@ -78,8 +79,9 @@ var CAMG_XSHOPPER = (function(){
                 acImgRequest.responseType = "blob";
                 
                 var gearboxCar = document.createElement('div');
-                var dummyImage = chrome.extension.getURL("src/images/test.jpg")
-                gearboxCar.innerHTML = "<a href=\"" + dealerUrl + "\">" + "<img width=\"90px\" src=\"" + dummyImage + "\" id=\"kbbimg" + i + "\"></a>" + rotMake + " " + rotModel + "<br>$" + price ;
+                var imgName = "src/images/test" + (i+1) + ".jpg"; 
+                var dummyImage = chrome.extension.getURL(imgName);
+                gearboxCar.innerHTML = "<a href=\"" + dealerUrl + "\">" + "<img width=\"90px\" src=\"" + dummyImage + "\" id=\"kbbimg" + i + "\"></a>" + rotYear + " " + rotMake + " " + rotModel + "<br><b>$" + price + "</b>" ;
                 document.getElementById('kbb_rotate').appendChild(gearboxCar);			
                 // acImgRequest.send();  // images are broken links 
             }
@@ -88,7 +90,7 @@ var CAMG_XSHOPPER = (function(){
             }, 5000);
             var script = document.createElement('script');
             script.type = 'text/javascript';
-            script.innerHTML= "$('.multiple-items').slick({infinite: false,dots: true,slidesToShow: 3,slidesToScroll: 3});"
+            script.innerHTML= "$('.multiple-items').slick({infinite: false,dots: false,slidesToShow: 3,slidesToScroll: 3});"
             document.getElementsByTagName('body')[0].appendChild(script);
             
 			//load data into ids
