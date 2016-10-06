@@ -94,7 +94,7 @@ var CAMG_XSHOPPER = (function(){
             }, 5000);
             var script = document.createElement('script');
             script.type = 'text/javascript';
-            script.innerHTML= "$('.multiple-items').slick({infinite: false,dots: false,slidesToShow: 3,slidesToScroll: 3});"
+            script.innerHTML= "$('.multiple-items').slick({infinite: false, arrows: true, dots: false, slidesToShow: 3,slidesToScroll: 3});"
             document.getElementsByTagName('body')[0].appendChild(script);
             
 			//load data into ids
