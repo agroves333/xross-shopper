@@ -24,8 +24,8 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["src/inject/inject.js"],
-      "css": ["src/css/main.css"]
+      "js": ["src/inject/carousel/jquery-1.11.0.min.js", "src/inject/carousel/jquery-migrate-1.2.1.min.js", "src/inject/carousel/slick/slick.min.js","src/inject/inject.js"],
+      "css": ["src/inject/carousel/slick/slick.css", "src/inject/carousel/slick/slick-theme.css", "src/css/main.css"]
     }
   ],
   "permissions": [

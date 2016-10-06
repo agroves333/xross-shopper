@@ -47,11 +47,10 @@ var CAMG_XSHOPPER = (function(){
 	
 	function renderGearBoxModule () {
 		var gearBoxRequest = null;
-		function reqListener () {
-			debugger;
+		function reqListener () {			
 			var allGearBoxData = JSON.parse(this.responseText);
 			//var carouselGearBoxData = {stuff:allGearBoxData.stuff};
-			console.log(this.responseText);
+			//console.log(this.responseText);
 			
 			//load data into ids
 		}
@@ -62,6 +61,44 @@ var CAMG_XSHOPPER = (function(){
 		gearBoxRequest.setRequestHeader("Authorization", "Basic " + btoa('kbbwebqa:3VHcgYbH'));  
 		gearBoxRequest.setRequestHeader('Accept', 'application/json');
 		gearBoxRequest.send( '?makeCode=ACURA&modelCode=ILX&year=2015' );		//TODO use values and confirm syntax, etc
+        // Price Advisor JS
+        /*
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = chrome.extension.getURL("src/inject/carousel/jquery-1.11.0.min.js");
+                document.getElementsByTagName('head')[0].appendChild(script);
+                
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = chrome.extension.getURL("src/inject/carousel/jquery-migrate-1.2.1.min.js");
+                document.getElementsByTagName('head')[0].appendChild(script);
+
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = chrome.extension.getURL("src/inject/carousel/slick/slick.min.js");
+                document.getElementsByTagName('body')[0].appendChild(script);
+
+                var script = document.createElement('style');
+                script.type = 'text/css';
+                script.src = chrome.extension.getURL("src/inject/carousel/slick/slick.css");
+                document.getElementsByTagName('head')[0].appendChild(script);
+
+                var script = document.createElement('style');
+                script.type = 'text/css';
+                script.src = chrome.extension.getURL("src/inject/carousel/slick/slick-theme.css");
+                document.getElementsByTagName('head')[0].appendChild(script);
+         */       
+                
+        $(document).ready(function() {
+        
+        $('.multiples-items').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+
+        });
+        });
+        // chrome-extension://__MSG_@@jnimfljjdnbkcnciojikcehejobpjhfi__/
 	}
 	
 	setTimeout(function() {
