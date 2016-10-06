@@ -47,11 +47,50 @@ var CAMG_XSHOPPER = (function(){
 	
 	function renderGearBoxModule () {
 		var gearBoxRequest = null;
+        var carcuts
 		function reqListener () {			
 			var allGearBoxData = JSON.parse(this.responseText);
 			//var carouselGearBoxData = {stuff:allGearBoxData.stuff};
-			//console.log(this.responseText);
-			
+			console.log(this.responseText);
+			//debugger
+            document.getElementById("kbb_rotate").innerHTML = "";
+            var i;
+ 
+            function imageDownload(oEvent) {
+                if(oEvent.status === 200 || oEvent.status === 304){
+                var blob = oEvent.response;
+                var mycounter = 'kbb' + i;
+                var imgElement = document.getElementById('mycounter');
+                imgElement.src = URL.createObjectURL(blob);
+               }
+            };
+            for(i = 0; i < allGearBoxData.results.length;i++){
+                var rotMake = allGearBoxData.results[i].make.name;
+                var rotModel = allGearBoxData.results[i].model.name;
+                var price = allGearBoxData.results[i].primaryPrice;
+                //var imgURL = allGearBoxData.results[i].imagesWithSize[0].imageUrl;
+                var imgURL = allGearBoxData.results[i].images[0];
+                var dealerUrl = "http://www.autotrader.com";
+                var imgURLFixed = imgURL.replace("http","https");
+                acImgRequest = new XMLHttpRequest();
+                acImgRequest.onload = imageDownload(e);
+                acImgRequest.open( "GET", imgURLFixed, true);
+                acImgRequest.responseType = "blob";
+                
+                var gearboxCar = document.createElement('div');
+                var dummyImage = chrome.extension.getURL("src/images/test.jpg")
+                gearboxCar.innerHTML = "<a href=\"" + dealerUrl + "\">" + "<img width=\"90px\" src=\"" + dummyImage + "\" id=\"kbbimg" + i + "\"></a>" + rotMake + " " + rotModel + "<br>$" + price ;
+                document.getElementById('kbb_rotate').appendChild(gearboxCar);			
+                // acImgRequest.send();  // images are broken links 
+            }
+            setTimeout(function () {
+                console.log("pausing for slick");
+            }, 5000);
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.innerHTML= "$('.multiple-items').slick({infinite: false,dots: true,slidesToShow: 3,slidesToScroll: 3});"
+            document.getElementsByTagName('body')[0].appendChild(script);
+            
 			//load data into ids
 		}
 		gearBoxRequest = new XMLHttpRequest();
@@ -126,14 +165,9 @@ var CAMG_XSHOPPER = (function(){
 				document.getElementById("make").value = make;
 				document.getElementById("model").value = model;
 				savePageData();
-
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.innerHTML= "$('.multiple-items').slick({infinite: true,slidesToShow: 3,slidesToScroll: 3});"
-            document.getElementsByTagName('body')[0].appendChild(script);
-			});
-			
-			renderGearBoxModule();
+            renderGearBoxModule();
+            });
+            
 		}
 	}, 5000);
 

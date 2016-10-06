@@ -44,4 +44,7 @@
 .multiple-items {
     padding-left: 10px;
     padding-right: 10px;
+    overflow: hidden;
+    max-width: 336px;
+    font-size: 0.75em;
 }

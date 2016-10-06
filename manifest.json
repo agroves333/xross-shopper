@@ -36,6 +36,7 @@
   "web_accessible_resources": [
     "src/inject/inject.html",
     "src/images/ad.png",
+    "src/images/test.jpg",
     "src/images/priceAdvisor.png",
     "src/inject/carousel/*"
   ]
