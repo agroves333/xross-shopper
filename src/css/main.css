@@ -1,27 +1,47 @@
 #kbb-ext-wrapper {
     padding: 15px;
+    width: 100%;
+    overflow: hidden;
+    display: table;
 }
 
 #kbb-ext-form{
     display: inline-block;
-    vertical-align: top;
 }
 
-#kbb-ext-form .kbb-mmy-input-group {
-    margin-right: 15px;
+.kbb-mmy-input-group {
+    overflow: hidden;
+    display: table;
+    padding-left: 25px;
+    padding-right: 20px;
 }
 
-#kbb-ext-form .kbb-mmy-input-group input {
+.kbb_child input[type=text] {
     width: 100px;
-    display: inline-block;
+    float: left;
     border-width: 1px;
-    padding: 5px;
+    padding: 5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+    
 }
 
-#kbb-ext-form .kbb-mmy-input-group label {
-    display: inline-block;
+.kbb_child label {
+    display: block;
 }
 
 #kbb-ext-ad {
     width: 400px;
+}
+
+.kbb_child {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.multiple-items {
+    padding-left: 10px;
+    padding-right: 10px;
 }
